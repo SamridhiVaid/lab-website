@@ -1,101 +1,146 @@
-import Image from "next/image";
+import { type FC } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function Home() {
+const HomePage: FC = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <div suppressHydrationWarning className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="md:col-span-1">
+          <div className="relative w-100 h-100 overflow-hidden rounded-lg">
+            <Image 
+              src="/ross-mitchell.jpg"
+              alt="Dr. J. Ross Mitchell" 
+              width={1000}
+              height={1000}
+              className="rounded-lg object-cover"
+              priority
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="md:col-span-2">
+          <h1 className="text-3xl font-bold mb-4">Dr. J. Ross Mitchell</h1>
+          <div className="space-y-2">
+            {/* Academic Positions */}
+            <p>Professor, Department of Medicine</p>
+            <p>Adjunct Professor, Department of Computer Science</p>
+            <p>University of Alberta</p>
+            
+            {/* Research Chairs and Positions */}
+            <p>Alberta Health Services (AHS) Chair in AI in Health</p>
+            <p>Canada CIFAR AI Chair</p>
+            <p>Fellow, Alberta Machine Intelligence Institute (Amii)</p>
+            
+            {/* Contact Information */}
+            <p><strong>Office:</strong> Clinical Sciences Building, 5th floor</p>
+            <p><strong>Email:</strong> jmitche at ualberta.ca</p>
+          
+            {/* External Profiles */}
+            <p>
+              <Link 
+                href="https://scholar.google.com/citations?user=cqOJ26UAAAAJ&hl=en" 
+                className="text-blue-600 hover:underline" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Google Scholar
+              </Link>
+            </p>
+            <p>
+              <Link
+                href="https://apps.ualberta.ca/directory/person/jmitche2"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                University of Alberta Profile
+              </Link>
+            </p>
+            <p>
+              <Link
+                href="https://www.amii.ca/about/our-people/ross-mitchell/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Amii Profile
+              </Link>
+            </p>
+            <p>
+              <Link
+                href="https://cifar.ca/bios/joseph-ross-mitchell/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CIFAR Profile
+              </Link>
+            </p>
+            <p>
+              <Link
+                href="https://www.linkedin.com/in/jrossmitchell/"
+                className="text-blue-600 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="space-y-6">
+        <section>
+          <h2 className="text-2xl font-bold">About Me</h2>
+          <p>
+          Dr. Mitchell is a Canada CIFAR AI Chair, the Alberta Health Services (AHS) Chair in AI in Health, a professor in the Department of Medicine, and an adjunct professor in the Department of Computer Science at the University of Alberta. He is also a fellow with the Alberta Machine Intelligence Institute and the senior program director of artificial intelligence adoption with AHS.
+
+Dr. Mitchell was the inaugural artificial intelligence officer at the H. Lee Moffitt Cancer Center and Research Institute in Tampa, Florida from 2019 to 2021. There he led efforts to develop AI tools to improve the efficiency and quality of cancer care, including models to predict patient outcomes from electronic health record data, and natural language processing to infer diagnostic codes from free-text pathology reports. He was a professor and the inaugural director of the Division of Medical Imaging Informatics in the Department of Radiology, Mayo Clinic in Arizona, from 2011 to 2019. He was a professor of Biomedical Engineering, Radiology, and Clinical Neurosciences at the University of Calgary from 2000 to 2011. He received his PhD at the University of Western Ontario and has been working in the fields of biomedical imaging, artificial intelligence, and machine learning in healthcare for 30 years.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold">About my Research</h2>
+          <p>
+            Dr. Mitchell&apos;s research focuses on the development and application of advanced imaging techniques 
+            and artificial intelligence in medicine, particularly in the fields of neurology and oncology.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-2xl font-bold">My Group</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">AI Researchers</h3>
+              <ul className="list-disc pl-5">
+                <li>Chun Hing Cheng</li>
+                <li>Samridhi Vaid</li>
+                <li>Sacha Davis</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">PhD Students</h3>
+              <ul className="list-disc pl-5">
+                <li>Anureet Tiwana</li>
+                <li>Hooda Ebrahimi</li>
+                <li>Michael Parkes</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Masters Students</h3>
+              <ul className="list-disc pl-5">
+                <li>Kiana Aghaskasiri</li>
+                <li>Tian Xiang Du</li>
+                <li>Yasmin Madani</li>
+                <li>Mobina Mosannafat</li>
+                <li>Mohammad Tavakoli</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
-  );
+  )
 }
+
+export default HomePage
