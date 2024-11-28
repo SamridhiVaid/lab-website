@@ -1,6 +1,5 @@
 // app/page.tsx
 import Image from 'next/image'
-import Link from 'next/link'
 import { Grid } from '@/components/ui/grid'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 

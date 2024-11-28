@@ -1,5 +1,4 @@
 // components/page-layout.tsx
-import { SectionHeader } from '@/components/ui/section-header'
 
 interface PageLayoutProps {
   title: string

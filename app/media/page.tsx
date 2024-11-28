@@ -1,6 +1,6 @@
 // app/media/page.tsx
 import { PageLayout } from '@/components/page-layout'
-import { Card, CardHeader, CardContent } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import Link from 'next/link'
 import { ExternalLink, Video } from 'lucide-react'
 
