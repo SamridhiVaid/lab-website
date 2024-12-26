@@ -169,7 +169,10 @@ const mastersStudents = [
 ];
 
 // Social Link Component
-const SocialLink = ({ type, url }) => {
+const SocialLink = ({ type, url }: {
+  type: 'webpage' | 'twitter' | 'scholar' | 'linkedin',
+  url: string
+}) => {
   const icons = {
     webpage: <GlobeIcon className="w-4 h-4" />,
     twitter: <TwitterIcon className="w-4 h-4" />,
@@ -190,7 +193,20 @@ const SocialLink = ({ type, url }) => {
 };
 
 // Person Card Component
-const PersonCard = ({ person }) => (
+interface Person {
+  name: string;
+  title: string;
+  image: string;
+  description: string;
+  links: {
+    webpage?: string;
+    twitter?: string;
+    scholar?: string;
+    linkedin?: string;
+  };
+}
+
+const PersonCard = ({ person }: { person: Person }) => (
   <div className="group relative">
     <div className="flex flex-col items-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
       <div className="relative w-48 h-48 mb-6">
@@ -209,7 +225,7 @@ const PersonCard = ({ person }) => (
         <p className="text-sm text-muted-foreground max-w-sm">{person.description}</p>
         <div className="flex justify-center gap-3 pt-3">
           {Object.entries(person.links).map(([key, url]) => (
-            <SocialLink key={key} type={key} url={url} />
+            <SocialLink key={key} type={key as 'webpage' | 'twitter' | 'scholar' | 'linkedin'} url={url} />
           ))}
         </div>
       </div>
@@ -218,7 +234,11 @@ const PersonCard = ({ person }) => (
 );
 
 // Section Header Component
-const SectionHeader = ({ title }) => (
+interface SectionHeaderProps {
+  title: string;
+}
+
+const SectionHeader = ({ title }: SectionHeaderProps) => (
   <div className="relative pb-12">
     <h2 className="text-4xl font-bold text-center">
       {title}
