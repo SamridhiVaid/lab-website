@@ -1,7 +1,7 @@
 // components/page-layout.tsx
 
 interface PageLayoutProps {
-  title: string
+  title?: string
   description?: string
   children: React.ReactNode
 }
