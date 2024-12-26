@@ -4,8 +4,8 @@ import { Container } from '@/components/ui/container'
 import './globals.css'
 
 export const metadata = {
-  title: 'Dr. J. Ross Mitchell',
-  description: 'Academic website of Dr. J. Ross Mitchell',
+  title: 'PHAIR Lab',
+  description: 'The PHAIR Lab is a research group in the Department of Medicine at the University of Alberta, led by Dr. J. Ross Mitchell.',
 }
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
             <div className="py-6 md:flex md:items-center md:justify-between">
               <div className="text-center md:text-left">
                 <p className="text-sm text-gray-600">
-                  © {new Date().getFullYear()} Dr. J. Ross Mitchell. All rights reserved.
+                  © {new Date().getFullYear()} PHAIR Lab. All rights reserved.
                 </p>
               </div>
               <div className="mt-4 flex justify-center md:mt-0">

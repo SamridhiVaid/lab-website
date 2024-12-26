@@ -1,106 +1,83 @@
-// app/page.tsx
 import Image from 'next/image'
-import { Grid } from '@/components/ui/grid'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent } from "@/components/ui/card"
+import { Footer } from '@/components/footer'
 
 export default function HomePage() {
+  const researchCategories = [
+    {
+      title: "Clinical AI Applications",
+      description: "Developing AI solutions for specific medical conditions including stroke, IBD, cancer, and rheumatology, with focus on medical imaging and EMR data analysis.",
+      projects: ["Hematoma growth prediction", "Gut segmentation", "CBCT segmentation"]
+    },
+    {
+      title: "Natural Language Processing",
+      description: "Advancing healthcare through NLP applications, including medical text analysis, AI scribing, and automated assessment tools.",
+      projects: ["Frailty estimation", "Medical text analysis", "AI Scribe implementation"]
+    },
+    {
+      title: "Machine Learning Infrastructure",
+      description: "Building robust ML systems with emphasis on data labeling efficiency and predictive modeling using EMR and imaging data.",
+      projects: ["Data labeling optimization", "EMR prediction models", "Multi-modal analysis"]
+    }
+  ]
+
   return (
-    <div className="space-y-12">
-    <section className="bg-white rounded-lg shadow-sm overflow-hidden">
-      <div className="md:flex">
-        <div className="md:w-1/3">
-          <div className="relative aspect-[3/4] md:h-[600px] w-full">
-            <Image 
-              src="/ross-mitchell.jpg"
-              alt="Dr. J. Ross Mitchell"
-              fill
-              sizes="(max-width: 768px) 100vw, 33vw"
-              className="object-cover object-center"
+    <>
+      <div className="max-w-6xl mx-auto px-4 space-y-16 py-16">
+        <section className="space-y-8">
+          <div className="relative aspect-[21/12] rounded-lg overflow-hidden shadow-lg">
+            <Image
+              src="/lab.jpg"
+              alt="PHAIR Lab"
+              layout="fill"
+              objectFit="fit"
               priority
-              />
-            </div>
+              className="transition-transform duration-300 hover:scale-105"
+            />
           </div>
-          <div className="p-6 md:p-8 md:w-2/3">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
-              Dr. J. Ross Mitchell
-            </h1>
-            <div className="space-y-4 text-gray-600">
-              <div>
-                <h2 className="font-semibold text-gray-900">Academic Positions</h2>
-                <p>Professor, Department of Medicine</p>
-                <p>Adjunct Professor, Department of Computer Science</p>
-                <p>University of Alberta</p>
-              </div>
-              <div>
-                <h2 className="font-semibold text-gray-900">Research Chairs</h2>
-                <p>Alberta Health Services (AHS) Chair in AI in Health</p>
-                <p>Canada CIFAR AI Chair</p>
-                <p>Fellow, Alberta Machine Intelligence Institute (Amii)</p>
-              </div>
-              <div>
-                <h2 className="font-semibold text-gray-900">Contact</h2>
-                <p>Office: Clinical Sciences Building, 5th floor</p>
-                <p>Email: jmitche at ualberta.ca</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="space-y-6">
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900">About Me</h2>
-        <div className="bg-white rounded-lg shadow-sm p-6 md:p-8">
-          <p className="text-gray-600 leading-relaxed">
-          Dr. Mitchell is a Canada CIFAR AI Chair, the Alberta Health Services (AHS) Chair in AI in Health, a professor in the Department of Medicine, and an adjunct professor in the Department of Computer Science at the University of Alberta. He is also a fellow with the Alberta Machine Intelligence Institute and the senior program director of artificial intelligence adoption with AHS.
-          Dr. Mitchell was the inaugural artificial intelligence officer at the H. Lee Moffitt Cancer Center and Research Institute in Tampa, Florida from 2019 to 2021. There he led efforts to develop AI tools to improve the efficiency and quality of cancer care, including models to predict patient outcomes from electronic health record data, and natural language processing to infer diagnostic codes from free-text pathology reports. He was a professor and the inaugural director of the Division of Medical Imaging Informatics in the Department of Radiology, Mayo Clinic in Arizona, from 2011 to 2019. He was a professor of Biomedical Engineering, Radiology, and Clinical Neurosciences at the University of Calgary from 2000 to 2011. He received his PhD at the University of Western Ontario and has been working in the fields of biomedical imaging, artificial intelligence, and machine learning in healthcare for 30 years.
-          </p>
-        </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-bold tracking-tight text-gray-900 mb-6">My Group</h2>
-        <Grid columns={{ default: 1, sm: 2, md: 3 }}>
-          <Card>
-            <CardHeader>
-              <CardTitle>AI Researchers</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li>Chun Hing Cheng</li>
-                <li>Samridhi Vaid</li>
-                <li>Sacha Davis</li>
-              </ul>
-            </CardContent>
-            </Card>
-
-            <Card>
-            <CardHeader>
-              <CardTitle>PhD Students</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li>Anureet Tiwana</li>
-                <li>Hooda Ebrahimi</li>
-                <li>Michael Parkes</li>
-              </ul>
+          <Card className="bg-white">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 mb-6">About Us</h2>
+              <div className="text-gray-600 space-y-4">
+                <p>
+                PHAIR (Precision Health AI Research) is a research lab at the University of Alberta dedicated to transforming healthcare through artificial intelligence. Bringing together an interdisciplinary team with expertise in clinical medicine, computer science, and data analytics, the lab focuses on innovative solutions to advance precision health.
+                </p>
+                <p>
+                  Led by Dr. J. Ross Mitchell, a trailblazer with over 30 years of expertise in biomedical imaging, AI, and healthcare innovation, the lab embodies his vision of leveraging technology to transform patient care.
+                </p>
+                <p>
+                  Dr. Mitchell, a Canada CIFAR AI Chair and the Alberta Health Services Chair in AI in Health, brings a distinguished career that includes leadership roles at the H. Lee Moffitt Cancer Center, Mayo Clinic, and University of Calgary, making the PHAIR Lab a leader in AI-driven healthcare research.
+                </p>
+              </div>
             </CardContent>
           </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Masters Students</CardTitle>
-            </CardHeader>
-            <CardContent>
-            <ul className="list-disc pl-5 space-y-1 text-gray-600">
-                <li>Kiana Aghaskasiri</li>
-                <li>Tian Xiang Du</li>
-                <li>Yasmin Madani</li>
-                <li>Mobina Mosannafat</li>
-                <li>Mohammad Tavakoli</li>
-              </ul>
-            </CardContent>
-          </Card>
-        </Grid>
-      </section>
-    </div>
+        </section>
+
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900">Research Areas</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {researchCategories.map((category, index) => (
+              <Card key={index} className="bg-white transition-colors duration-200">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{category.title}</h3>
+                  <p className="text-gray-600 mb-4">{category.description}</p>
+                  <div className="space-y-2">
+                    <h4 className="text-sm font-medium text-gray-700">Key Projects:</h4>
+                    <ul className="list-disc list-inside text-sm text-gray-600">
+                      {category.projects.map((project, idx) => (
+                        <li key={idx} className="ml-2">{project}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </div>
+      <Footer />
+    </>
   )
 }
+
