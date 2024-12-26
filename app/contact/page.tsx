@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageLayout } from '@/components/page-layout';
 import { Card, CardContent } from "@/components/ui/card"
-import { ExternalLink, Mail, Users } from 'lucide-react'
+import { ExternalLink, Users } from 'lucide-react'
 
 // Main Page Component
 export default function ContactUsPage() {
