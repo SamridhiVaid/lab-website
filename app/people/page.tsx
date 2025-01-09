@@ -3,12 +3,15 @@ import Image from 'next/image';
 import { PageLayout } from '@/components/page-layout';
 import { GlobeIcon, TwitterIcon, BookOpenIcon, Linkedin } from 'lucide-react';
 
+const DEFAULT_AVATAR = "/image/assets/next.svg";
+
+
 // Data structure for principal investigators
 const principalInvestigators = [
   {
     name: "Dr. J. Ross Mitchell",
     title: "University of Alberta",
-    image: "/ross.webp",
+    image: "/image/assets/ross.webp",  // Updated path
     description: "Professor, Department of Medicine",
     links: {
       webpage: "https://sites.google.com/view/j-ross-mitchell/",
@@ -17,7 +20,7 @@ const principalInvestigators = [
     }
   }, {
     name: 'Mohamed Abdalla',
-    image: "/abdallah.png",
+    image: "/image/assets/abdallah.png",  // Updated path
     title: 'University of Alberta',
     description: 'Assistant Professor, Department of Medicine',
     links: {
@@ -32,7 +35,7 @@ const researchers = [
   {
     name: "Chun Hing Cheng",
     title: "AI Researcher",
-    image: "/chunhingcheng.png",
+    image: DEFAULT_AVATAR,
     description: "Artificial Intelligence and Machine Learning",
     links: {
       webpage: "#",
@@ -44,7 +47,7 @@ const researchers = [
   {
     name: "Samridhi Vaid",
     title: "AI Researcher",
-    image: "/sam.png",
+    image: "/image/assets/sam.png",
     description: "MLOps and GenAI for healthcare",
     links: {
       scholar: "https://scholar.google.ca/citations?user=x8fot_QAAAAJ&hl=en",
@@ -54,119 +57,60 @@ const researchers = [
   },
   {
     name: "Sacha Davis",
-    title: "AI Researcher",
-    image: "/sachadavis.png",
-    description: "Neural networks and AI ethics",
+    title: "AI Specialist",
+    image: "/image/assets/sacha.png",
+    description: "ML for Electronic Health Records",
     links: {
-      webpage: "#",
-      twitter: "#",
-      scholar: "#",
-      linkedin: "#"
+      webpage: "https://www.sachadavis.com",
+      twitter: "https://x.com/sachamarendavis",
+      scholar: "https://scholar.google.com/citations?user=IhVmweAAAAAJ&hl=en&authuser=1",
+      linkedin: "https://www.linkedin.com/in/sachamarendavis/"
     }
   }
 ];
 
-const phdStudents = [
-  {
-    name: "Anureet Tiwana",
-    title: "PhD Student",
-    image: "/anureettiwana.png",
-    description: "Robotics and reinforcement learning",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Hooda Ebrahimi",
-    title: "PhD Student",
-    image: "/hoodaebrahimi.png",
-    description: "Natural language processing and AI",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Michael Parkes",
-    title: "PhD Student",
-    image: "/michaelparkes.png",
-    description: "Optimization algorithms in machine learning",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  }
-];
+// Person Card Component
+interface Person {
+  name: string;
+  title: string;
+  image: string;
+  description: string;
+  links: {
+    webpage?: string;
+    twitter?: string;
+    scholar?: string;
+    linkedin?: string;
+  };
+}
 
-const mastersStudents = [
-  {
-    name: "Kiana Aghaskasiri",
-    title: "Masters Student",
-    image: "/kianaaghaskasiri.png",
-    description: "AI for healthcare",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Tian Xiang Du",
-    title: "Masters Student",
-    image: "/tianxiangdu.png",
-    description: "Computer vision and robotics",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Yasmin Madani",
-    title: "Masters Student",
-    image: "/yasminmadani.png",
-    description: "Ethics in AI and automation",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Mobina Mosannafat",
-    title: "Masters Student",
-    image: "/mobinamosannafat.png",
-    description: "Data science and predictive modeling",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#"
-    }
-  },
-  {
-    name: "Mohammad Tavakoli",
-    title: "Masters Student",
-    image: "/mohammadtavakoli.png",
-    description: "AI systems and scalability",
-    links: {
-      webpage: "#",
-      scholar: "#",
-      twitter: "#",
-      linkedin: "#",
-    }
-  }
-];
+const PersonCard = ({ person }: { person: Person }) => (
+  <div className="group relative">
+    <div className="flex flex-col items-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
+      <div className="relative w-48 h-48 mb-6">
+        <div className="absolute inset-0 rounded-xl overflow-hidden">
+          <Image
+            src={person.image}
+            alt={person.name}
+            width={192}
+            height={192}
+            className="object-cover transform group-hover:scale-105 transition-transform duration-200"
+            unoptimized
+          />
+        </div>
+      </div>
+      <div className="text-center space-y-2">
+        <h3 className="text-xl font-semibold text-gray-900">{person.name}</h3>
+        <p className="text-primary font-medium">{person.title}</p>
+        <p className="text-sm text-muted-foreground max-w-sm">{person.description}</p>
+        <div className="flex justify-center gap-3 pt-3">
+          {Object.entries(person.links).map(([key, url]) => (
+            url !== "#" && <SocialLink key={key} type={key as 'webpage' | 'twitter' | 'scholar' | 'linkedin'} url={url} />
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
 
 // Social Link Component
 const SocialLink = ({ type, url }: {
@@ -191,47 +135,6 @@ const SocialLink = ({ type, url }: {
     </a>
   );
 };
-
-// Person Card Component
-interface Person {
-  name: string;
-  title: string;
-  image: string;
-  description: string;
-  links: {
-    webpage?: string;
-    twitter?: string;
-    scholar?: string;
-    linkedin?: string;
-  };
-}
-
-const PersonCard = ({ person }: { person: Person }) => (
-  <div className="group relative">
-    <div className="flex flex-col items-center p-6 rounded-2xl bg-white shadow-sm hover:shadow-md transition-shadow duration-200">
-      <div className="relative w-48 h-48 mb-6">
-        <div className="absolute inset-0 rounded-xl overflow-hidden">
-          <Image
-            src={person.image}
-            alt={person.name}
-            fill
-            className="object-cover transform group-hover:scale-105 transition-transform duration-200"
-          />
-        </div>
-      </div>
-      <div className="text-center space-y-2">
-        <h3 className="text-xl font-semibold text-gray-900">{person.name}</h3>
-        <p className="text-primary font-medium">{person.title}</p>
-        <p className="text-sm text-muted-foreground max-w-sm">{person.description}</p>
-        <div className="flex justify-center gap-3 pt-3">
-          {Object.entries(person.links).map(([key, url]) => (
-            <SocialLink key={key} type={key as 'webpage' | 'twitter' | 'scholar' | 'linkedin'} url={url} />
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-);
 
 // Section Header Component
 interface SectionHeaderProps {
@@ -283,7 +186,44 @@ export default function PeoplePage() {
           <section>
             <SectionHeader title="PhD Students" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-              {phdStudents.map((person, index) => (
+              {[
+                {
+                  name: "Anureet Tiwana",
+                  title: "PhD Student",
+                  image: DEFAULT_AVATAR,
+                  description: "Robotics and reinforcement learning",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                },
+                {
+                  name: "Hooda Ebrahimi",
+                  title: "PhD Student",
+                  image: DEFAULT_AVATAR,
+                  description: "Natural language processing and AI",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                },
+                {
+                  name: "Michael Parkes",
+                  title: "PhD Student",
+                  image: DEFAULT_AVATAR,
+                  description: "Optimization algorithms in machine learning",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                }
+              ].map((person, index) => (
                 <PersonCard key={index} person={person} />
               ))}
             </div>
@@ -292,7 +232,68 @@ export default function PeoplePage() {
           <section>
             <SectionHeader title="Masters Students" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-              {mastersStudents.map((person, index) => (
+              {[
+                {
+                  name: "Kiana Aghaskasiri",
+                  title: "Masters Student",
+                  image: DEFAULT_AVATAR,
+                  description: "AI for healthcare",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                },
+                {
+                  name: "Tian Xiang Du",
+                  title: "Masters Student",
+                  image: DEFAULT_AVATAR,
+                  description: "Computer vision and robotics",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                },
+                {
+                  name: "Yasmin Madani",
+                  title: "Masters Student",
+                  image: DEFAULT_AVATAR,
+                  description: "Ethics in AI and automation",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                },
+                {
+                  name: "Mobina Mosannafat",
+                  title: "Masters Student",
+                  image: DEFAULT_AVATAR,
+                  description: "Data science and predictive modeling",
+                  links: {
+                    webpage: "#",
+                    scholar: "#",
+                    twitter: "#",
+                    linkedin: "#"
+                  }
+                },
+                {
+                  name: "Mohammad Tavakoli",
+                  title: "Masters Student",
+                  image: "/image/assets/mohammadtavakoli.png",
+                  description: "Large Language Models and Retrieval-Augmented Generation",
+                  links: {
+                    webpage: "#",
+                    scholar: "https://scholar.google.ca/citations?user=gCgTCMQAAAAJ&hl=en&authuser=1",
+                    twitter: "#",
+                    linkedin: "https://www.linkedin.com/in/mohamadtavakoli/",
+                  }
+                }
+              ].map((person, index) => (
                 <PersonCard key={index} person={person} />
               ))}
             </div>
