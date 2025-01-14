@@ -236,13 +236,13 @@ export default function PeoplePage() {
                 {
                   name: "Kiana Aghaskasiri",
                   title: "Masters Student",
-                  image: DEFAULT_AVATAR,
-                  description: "AI for healthcare",
+                  image: "/image/assets/kiana.jpg",
+                  description: "Large Language Models in Medical Application",
                   links: {
                     webpage: "#",
                     scholar: "#",
                     twitter: "#",
-                    linkedin: "#"
+                    linkedin: "https://www.linkedin.com/in/kiana-aghakasiri-31a87324a/"
                   }
                 },
                 {
