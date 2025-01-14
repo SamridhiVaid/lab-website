@@ -200,15 +200,15 @@ export default function PeoplePage() {
                   }
                 },
                 {
-                  name: "Hooda Ebrahimi",
+                  name: "Hoda Ebrahimi",
                   title: "PhD Student",
-                  image: DEFAULT_AVATAR,
-                  description: "Natural language processing and AI",
+                  image: "/image/assets/hoda.JPG",
+                  description: "Computer Vision in Healthcare and Medical Image Processing",
                   links: {
                     webpage: "#",
                     scholar: "#",
                     twitter: "#",
-                    linkedin: "#"
+                    linkedin: "https://www.linkedin.com/in/hoda-ebrahimi-88a49a239"
                   }
                 },
                 {
@@ -260,25 +260,26 @@ export default function PeoplePage() {
                 {
                   name: "Yasmin Madani",
                   title: "Masters Student",
-                  image: DEFAULT_AVATAR,
-                  description: "Ethics in AI and automation",
+                  image: "/image/assets/Yasmin.png",
+                  description: "Natural language processing and AI",
                   links: {
                     webpage: "#",
-                    scholar: "#",
-                    twitter: "#",
-                    linkedin: "#"
+                    scholar: "https://scholar.google.ca/citations?user=VBFLp8wAAAAJ&hl=en",
+                    twitter: "https://x.com/yasmin_mdn?s=11",
+                    linkedin: "https://www.linkedin.com/in/yasmin-madani"
                   }
                 },
                 {
                   name: "Mobina Mosannafat",
                   title: "Masters Student",
-                  image: DEFAULT_AVATAR,
-                  description: "Data science and predictive modeling",
+                  image: "/image/assets/MobinaMosannafat.jpeg",
+                  description: "AI in Periciosion Health, Mecial Image Processing, Machine Learning",
                   links: {
                     webpage: "#",
-                    scholar: "#",
+                    scholar: "https://scholar.google.ca/citations?user=Kelj4IUAAAAJ&hl=en",
                     twitter: "#",
-                    linkedin: "#"
+                    linkedin: "https://www.linkedin.com/in/mobina-mosannafat/"
+                    
                   }
                 },
                 {
