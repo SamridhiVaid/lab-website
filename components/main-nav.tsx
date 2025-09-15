@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X } from 'lucide-react'
 
@@ -24,9 +25,16 @@ export function MainNav() {
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="text-xl font-bold text-gray-800">
-                <img src="/long.png" alt="PHAIR Lab" className="h-8" />
+                <Image
+                  src="/image/assets/long.png"
+                  alt="PHAIR Lab"
+                  width={128}
+                  height={32}
+                  className="h-8 w-auto"
+                  unoptimized
+                  priority
+                />
               </Link>
-
             </div>
           </div>
           <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
@@ -34,15 +42,17 @@ export function MainNav() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${pathname === item.href
-                  ? "border-indigo-500 text-gray-900"
-                  : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
-                  }`}
+                className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
+                  pathname === item.href
+                    ? "border-indigo-500 text-gray-900"
+                    : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                }`}
               >
                 {item.label}
               </Link>
             ))}
           </div>
+          {/* Mobile menu button */}
           <div className="-mr-2 flex items-center sm:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -59,6 +69,7 @@ export function MainNav() {
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isOpen && (
         <div className="sm:hidden">
           <div className="pt-2 pb-3 space-y-1">
@@ -66,10 +77,11 @@ export function MainNav() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${pathname === item.href
-                  ? "bg-indigo-50 border-indigo-500 text-indigo-700"
-                  : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"
-                  }`}
+                className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
+                  pathname === item.href
+                    ? "bg-indigo-50 border-indigo-500 text-indigo-700"
+                    : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
@@ -81,4 +93,3 @@ export function MainNav() {
     </nav>
   )
 }
-

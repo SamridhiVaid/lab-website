@@ -214,13 +214,13 @@ export default function PeoplePage() {
                 {
                   name: "Michael Parkes",
                   title: "PhD Student",
-                  image: DEFAULT_AVATAR,
-                  description: "Optimization algorithms in machine learning",
+                  image: "/image/assets/michael.jpg",
+                  description: "Immunologist and computer scientist researching medical applications of ML",
                   links: {
                     webpage: "#",
-                    scholar: "#",
+                    scholar: "https://scholar.google.ca/citations?user=XTe838MAAAAJ&hl=en",
                     twitter: "#",
-                    linkedin: "#"
+                    linkedin: "https://www.linkedin.com/in/michael-parkes-2694a372/"
                   }
                 }
               ].map((person, index) => (
@@ -273,7 +273,7 @@ export default function PeoplePage() {
                   name: "Mobina Mosannafat",
                   title: "Masters Student",
                   image: "/image/assets/MobinaMosannafat.jpeg",
-                  description: "AI in Periciosion Health, Mecial Image Processing, Machine Learning",
+                  description: "AI in Precision Health, Medical Image Processing, Machine Learning",
                   links: {
                     webpage: "#",
                     scholar: "https://scholar.google.ca/citations?user=Kelj4IUAAAAJ&hl=en",

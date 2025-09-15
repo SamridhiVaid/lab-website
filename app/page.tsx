@@ -27,7 +27,7 @@ export default function HomePage() {
         <section className="space-y-8">
           <div className="relative aspect-[21/12] rounded-lg overflow-hidden shadow-lg">
             <Image
-              src="/lab.jpg"
+              src="/image/assets/lab.jpg"
               alt="PHAIR Lab"
               layout="fill"
               objectFit="fit"

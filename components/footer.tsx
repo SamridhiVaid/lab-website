@@ -4,29 +4,29 @@ export function Footer() {
   const partners = [
     {
       name: "University of Alberta",
-      logo: "/uofa.png",
+      logo: "/image/assets/uofa.png",  // Updated path
       width: 220,
       height: 80
     },
     {
       name: "Amii",
-      logo: "/amii.png",
+      logo: "/image/assets/amii.png",  // Updated path
       width: 160,
       height: 80
     },
     {
       name: "Alberta Health Services",
-      logo: "/ahs.png",
+      logo: "/image/assets/ahs.png",  // Updated path
       width: 220,
       height: 80
     },
     {
       name: "CIFAR",
-      logo: "/cifar.png",
+      logo: "/image/assets/cifar.png",  // Updated path
       width: 160,
       height: 80
     }
-  ]
+  ];
 
   return (
     <footer className="border-t bg-white">
@@ -43,6 +43,8 @@ export function Footer() {
                 width={partner.width}
                 height={partner.height}
                 className="object-contain"
+                unoptimized // Added for static export
+                priority // Added to prioritize loading of footer logos
               />
             </div>
           ))}
@@ -51,4 +53,3 @@ export function Footer() {
     </footer>
   )
 }
-
